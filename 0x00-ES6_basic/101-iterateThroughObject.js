@@ -3,7 +3,6 @@ export default function iterateThroughObject(reportWithIterator) {
   let processedReport = 0;
   let reportStr = '';
 
-  if (!reportWithIterator) return;
   for (const name of reportWithIterator) {
     reportStr += name;
     if ((processedReport + 1) < reportLength) reportStr += ' | ';
