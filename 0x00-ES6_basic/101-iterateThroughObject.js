@@ -9,5 +9,5 @@ export default function iterateThroughObject(reportWithIterator) {
     if ((processedReport + 1) < reportLength) reportStr += ' | ';
     processedReport += 1;
   }
-  console.log(reportStr);
+  return (reportStr);
 }
