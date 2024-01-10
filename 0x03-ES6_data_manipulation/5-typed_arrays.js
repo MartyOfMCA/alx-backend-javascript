@@ -21,7 +21,7 @@ const createInt8TypedArray = (length, pos, value) => {
   try {
     view.setInt8(pos, value);
   } catch (ex) {
-    new Error('Position outside range');
+    throw new Error('Position outside range');
   }
 
   return (view);
