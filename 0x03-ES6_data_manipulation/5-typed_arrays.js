@@ -24,7 +24,7 @@ const createInt8TypedArray = (length, pos, value) => {
     new Error('Position outside range');
   }
 
-  return (arr);
+  return (view);
 };
 
 export default createInt8TypedArray;
