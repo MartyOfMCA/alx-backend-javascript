@@ -1,10 +1,10 @@
 interface Teacher {
-  readonly firstName: string,
-  readonly lastName: string,
-  fullTimeEmployee: boolean,
-  yearsOfExperience?: number,
-  location: string,
-  [key: string]: any
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
 interface Directors extends Teacher {
@@ -20,8 +20,8 @@ const printTeacher: printTeacherFunction = (firstName: string, lastName: string)
 );
 
 interface IStudent {
-  firstName: string,
-  lastName: string
+  firstName: string;
+  lastName: string;
 }
 
 class StudentClass implements IStudent {
