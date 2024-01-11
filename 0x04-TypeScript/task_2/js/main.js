@@ -52,3 +52,11 @@ const executeWork = (employee: Director | Teacher) => {
   if (isDirector(employee)) employee.workDirectorTasks();
   else employee.workTeacherTasks();
 };
+
+type Subjects = 'Math' | 'History';
+
+const teachClass = (todayClass: string): string => (
+  todayClass === 'Math'
+  ? 'Teaching Math'
+  : 'Teaching History'
+);
