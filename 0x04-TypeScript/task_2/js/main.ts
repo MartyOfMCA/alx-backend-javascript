@@ -55,7 +55,7 @@ const executeWork = (employee: Director | Teacher) => {
 
 type Subjects = 'Math' | 'History';
 
-const teachClass = (todayClass: string): string => (
+export const teachClass = (todayClass: string): string => (
   todayClass === 'Math'
   ? 'Teaching Math'
   : 'Teaching History'
