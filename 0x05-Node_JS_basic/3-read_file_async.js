@@ -107,28 +107,27 @@ const fs = require('fs');
 
 const countStudents = (filePath) => {
   const promise = new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf-8', (err, fileContents) => {
-      if (err) {
-        reject(new Error('Cannot load the database'));
-      } else {
-        const lines = fileContents.split('\n');
-        const fields = getFields(lines);
-        const records = new Map();
+    try {
+      const fileContents = fs.readFileSync(filePath, 'utf-8');
+      const lines = fileContents.split('\n');
+      const fields = getFields(lines);
+      const records = new Map();
 
-        fields.forEach((field) => {
-          lines.forEach((line) => {
-            if (getField(line) === field) {
-              const ____name = getName(line);
+      fields.forEach((field) => {
+        lines.forEach((line) => {
+          if (getField(line) === field) {
+            const ____name = getName(line);
 
-              if (!records.get(field)) records.set(field, [____name]);
-              else records.get(field).push(____name);
-            }
-          });
+            if (!records.get(field)) records.set(field, [____name]);
+            else records.get(field).push(____name);
+          }
         });
+      });
 
-        resolve(printRecordsSummary(records));
-      }
-    });
+      resolve(printRecordsSummary(records));
+    } catch (err) {
+      reject(new Error('Cannot load the database'));
+    }
   });
 
   return (promise);
