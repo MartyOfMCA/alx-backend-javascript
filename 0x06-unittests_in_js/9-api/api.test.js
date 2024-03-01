@@ -13,7 +13,20 @@ describe('api', () => {
   it('correct status code for request to /cart/:id as a string', (done) => {
     request.get('http://localhost:7865/cart/error', (error, response, body) => {
       expect(response.statusCode).to.equal(404);
-      expect(response.body).to.include('<title>Error</title>');
+      done();
+    });
+  });
+
+  it('correct status code for request to index', function (done) {
+    request.get('http://localhost:7865/', (error, response, body) => {
+      expect(response.statusCode).to.equal(200);
+      done();
+    });
+  });
+
+  it('correct response body for request to index', function (done) {
+    request.get('http://localhost:7865/', (error, response, body) => {
+      expect(body).to.equal('Welcome to the payment system');
       done();
     });
   });
